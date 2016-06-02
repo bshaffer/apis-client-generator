@@ -53,7 +53,7 @@ class Google_Service_KitchSink extends Google_Service
   public $topics;
   public $topics_submissions;
   public $votes;
-  
+
 
   /**
    * Constructs the internal representation of the KitchSink service.
@@ -2154,10 +2154,6 @@ class Google_Service_KitchSink_SubmissionParentSubmissionId extends Google_Model
   }
 }
 
-class Google_Service_KitchSink_SubmissionTranslations extends Google_Model
-{
-}
-
 class Google_Service_KitchSink_Tag extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -2237,10 +2233,6 @@ class Google_Service_KitchSink_TagId extends Google_Model
   {
     return $this->tag;
   }
-}
-
-class Google_Service_KitchSink_TagList extends Google_Model
-{
 }
 
 class Google_Service_KitchSink_Topic extends Google_Model
