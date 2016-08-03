@@ -1,0 +1,879 @@
+=== begin: ./LibraryExample/Book.php
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+class Google_Service_LibraryExample_Book extends Google_Model
+{
+  public $author;
+  public $name;
+  public $read;
+  public $title;
+
+  public function setAuthor($author)
+  {
+    $this->author = $author;
+  }
+  public function getAuthor()
+  {
+    return $this->author;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setRead($read)
+  {
+    $this->read = $read;
+  }
+  public function getRead()
+  {
+    return $this->read;
+  }
+  public function setTitle($title)
+  {
+    $this->title = $title;
+  }
+  public function getTitle()
+  {
+    return $this->title;
+  }
+}
+=== end: ./LibraryExample/Book.php
+=== begin: ./LibraryExample/Enum.php
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+class Google_Service_LibraryExample_Enum extends Google_Model
+{
+  public $name;
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+}
+=== end: ./LibraryExample/Enum.php
+=== begin: ./LibraryExample/LibraryExampleEmpty.php
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+class Google_Service_LibraryExample_LibraryExampleEmpty extends Google_Model
+{
+}
+=== end: ./LibraryExample/LibraryExampleEmpty.php
+=== begin: ./LibraryExample/ListBooksResponse.php
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+class Google_Service_LibraryExample_ListBooksResponse extends Google_Collection
+{
+  protected $collection_key = 'books';
+  protected $booksType = 'Google_Service_LibraryExample_Book';
+  protected $booksDataType = 'array';
+  public $nextPageToken;
+
+  public function setBooks($books)
+  {
+    $this->books = $books;
+  }
+  public function getBooks()
+  {
+    return $this->books;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+}
+=== end: ./LibraryExample/ListBooksResponse.php
+=== begin: ./LibraryExample/ListShelvesResponse.php
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+class Google_Service_LibraryExample_ListShelvesResponse extends Google_Collection
+{
+  protected $collection_key = 'shelves';
+  public $nextPageToken;
+  public $null;
+  protected $shelvesType = 'Google_Service_LibraryExample_Shelf';
+  protected $shelvesDataType = 'array';
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setNull($null)
+  {
+    $this->null = $null;
+  }
+  public function getNull()
+  {
+    return $this->null;
+  }
+  public function setShelves($shelves)
+  {
+    $this->shelves = $shelves;
+  }
+  public function getShelves()
+  {
+    return $this->shelves;
+  }
+}
+=== end: ./LibraryExample/ListShelvesResponse.php
+=== begin: ./LibraryExample/MergeShelvesRequest.php
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+class Google_Service_LibraryExample_MergeShelvesRequest extends Google_Model
+{
+  public $otherShelfName;
+
+  public function setOtherShelfName($otherShelfName)
+  {
+    $this->otherShelfName = $otherShelfName;
+  }
+  public function getOtherShelfName()
+  {
+    return $this->otherShelfName;
+  }
+}
+=== end: ./LibraryExample/MergeShelvesRequest.php
+=== begin: ./LibraryExample/MoveBookRequest.php
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+class Google_Service_LibraryExample_MoveBookRequest extends Google_Model
+{
+  public $otherShelfName;
+
+  public function setOtherShelfName($otherShelfName)
+  {
+    $this->otherShelfName = $otherShelfName;
+  }
+  public function getOtherShelfName()
+  {
+    return $this->otherShelfName;
+  }
+}
+=== end: ./LibraryExample/MoveBookRequest.php
+=== begin: ./LibraryExample.php
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+/**
+ * Service definition for LibraryExample (v1).
+ *
+ * <p>
+ * A simple Google Example Library API.</p>
+ *
+ * <p>
+ * For more information about this service, see the API
+ * <a href="" target="_blank">Documentation</a>
+ * </p>
+ *
+ * @author Google, Inc.
+ */
+class Google_Service_LibraryExample extends Google_Service
+{
+  /** Test scope for access to the Zoo service. */
+  const XAPI_ZOO =
+      "https://www.googleapis.com/auth/xapi.zoo";
+
+  public $restricted_shelves;
+  public $shelves;
+  public $shelves_books;
+  
+  /**
+   * Constructs the internal representation of the LibraryExample service.
+   *
+   * @param Google_Client $client
+   */
+  public function __construct(Google_Client $client)
+  {
+    parent::__construct($client);
+    $this->rootUrl = 'https://library-example.googleapis.com/';
+    $this->servicePath = '';
+    $this->version = 'v1';
+    $this->serviceName = 'library_example';
+
+    $this->restricted_shelves = new Google_Service_LibraryExample_Resource_RestrictedShelves(
+        $this,
+        $this->serviceName,
+        'shelves',
+        array(
+          'methods' => array(
+            'get' => array(
+              'path' => 'v1/restricted/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->shelves = new Google_Service_LibraryExample_Resource_Shelves(
+        $this,
+        $this->serviceName,
+        'shelves',
+        array(
+          'methods' => array(
+            'create' => array(
+              'path' => 'v1/shelves',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'delete' => array(
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v1/shelves',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'merge' => array(
+              'path' => 'v1/{+name}:merge',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->shelves_books = new Google_Service_LibraryExample_Resource_ShelvesBooks(
+        $this,
+        $this->serviceName,
+        'books',
+        array(
+          'methods' => array(
+            'create' => array(
+              'path' => 'v1/{+name}/books',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'delete' => array(
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'timestamp' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'duration' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v1/{+name}/books',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'move' => array(
+              'path' => 'v1/{+name}:move',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+  }
+}
+=== end: ./LibraryExample.php
+=== begin: ./LibraryExample/Resource/Restricted.php
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+/**
+ * The "restricted" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $library_exampleService = new Google_Service_LibraryExample(...);
+ *   $restricted = $library_exampleService->restricted;
+ *  </code>
+ */
+class Google_Service_LibraryExample_Resource_Restricted extends Google_Service_Resource
+{
+}
+=== end: ./LibraryExample/Resource/Restricted.php
+=== begin: ./LibraryExample/Resource/RestrictedShelves.php
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+/**
+ * The "shelves" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $library_exampleService = new Google_Service_LibraryExample(...);
+ *   $shelves = $library_exampleService->shelves;
+ *  </code>
+ */
+class Google_Service_LibraryExample_Resource_RestrictedShelves extends Google_Service_Resource
+{
+  /**
+   * Gets a shelf. Returns NOT_FOUND if the shelf does not exist. This method has
+   * restricted visibility. TODO(wgg): should rename this, see b/19424233
+   * (shelves.get)
+   *
+   * @param string $name The name of the shelf to retrieve.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_LibraryExample_Shelf
+   */
+  public function get($name, $optParams = array())
+  {
+    $params = array('name' => $name);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_LibraryExample_Shelf");
+  }
+}
+=== end: ./LibraryExample/Resource/RestrictedShelves.php
+=== begin: ./LibraryExample/Resource/ShelvesBooks.php
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+/**
+ * The "books" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $library_exampleService = new Google_Service_LibraryExample(...);
+ *   $books = $library_exampleService->books;
+ *  </code>
+ */
+class Google_Service_LibraryExample_Resource_ShelvesBooks extends Google_Service_Resource
+{
+  /**
+   * Creates a book, and returns the new Book. (books.create)
+   *
+   * @param string $name The name of the shelf in which the book is created.
+   * @param Google_Service_LibraryExample_Book $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_LibraryExample_Book
+   */
+  public function create($name, Google_Service_LibraryExample_Book $postBody, $optParams = array())
+  {
+    $params = array('name' => $name, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('create', array($params), "Google_Service_LibraryExample_Book");
+  }
+  /**
+   * Deletes a book. Returns NOT_FOUND if the book does not exist. (books.delete)
+   *
+   * @param string $name The name of the book to delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_LibraryExample_LibraryExampleEmpty
+   */
+  public function delete($name, $optParams = array())
+  {
+    $params = array('name' => $name);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_LibraryExample_LibraryExampleEmpty");
+  }
+  /**
+   * Gets a book. Returns NOT_FOUND if the book does not exist. (books.get)
+   *
+   * @param string $name The name of the book to retrieve.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string timestamp An unmeaningful google-datetime parameter for
+   * testing.
+   * @opt_param string duration An unmeaningful google-duration parameter for
+   * testing.
+   * @return Google_Service_LibraryExample_Book
+   */
+  public function get($name, $optParams = array())
+  {
+    $params = array('name' => $name);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_LibraryExample_Book");
+  }
+  /**
+   * Lists books in a shelf. The order is unspecified but deterministic. Newly
+   * created books will not necessarily be added to the end of this list. Returns
+   * NOT_FOUND if the shelf does not exist. (books.listShelvesBooks)
+   *
+   * @param string $name The name of the shelf whose books we'd like to list.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param int pageSize Requested page size. Server may return fewer books
+   * than requested. If unspecified, server will pick an appropriate default.
+   * @opt_param string pageToken A token identifying a page of results the server
+   * should return. Typically, this is the value of [ListBooksResponse.next_page_t
+   * oken][google.example.library.v1.ListBooksResponse.next_page_token]. returned
+   * from the previous call to `ListBooks` method.
+   * @return Google_Service_LibraryExample_ListBooksResponse
+   */
+  public function listShelvesBooks($name, $optParams = array())
+  {
+    $params = array('name' => $name);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_LibraryExample_ListBooksResponse");
+  }
+  /**
+   * Moves a book to another shelf, and returns the new book. The book id of the
+   * new book may not be the same as the original book. (books.move)
+   *
+   * @param string $name The name of the book to move.
+   * @param Google_Service_LibraryExample_MoveBookRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_LibraryExample_Book
+   */
+  public function move($name, Google_Service_LibraryExample_MoveBookRequest $postBody, $optParams = array())
+  {
+    $params = array('name' => $name, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('move', array($params), "Google_Service_LibraryExample_Book");
+  }
+  /**
+   * Updates a book. Returns INVALID_ARGUMENT if the name of the book is non-empty
+   * and does equal the previous name. (books.update)
+   *
+   * @param string $name The name of the book to update.
+   * @param Google_Service_LibraryExample_Book $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_LibraryExample_Book
+   */
+  public function update($name, Google_Service_LibraryExample_Book $postBody, $optParams = array())
+  {
+    $params = array('name' => $name, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_LibraryExample_Book");
+  }
+}
+=== end: ./LibraryExample/Resource/ShelvesBooks.php
+=== begin: ./LibraryExample/Resource/Shelves.php
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+/**
+ * The "shelves" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $library_exampleService = new Google_Service_LibraryExample(...);
+ *   $shelves = $library_exampleService->shelves;
+ *  </code>
+ */
+class Google_Service_LibraryExample_Resource_Shelves extends Google_Service_Resource
+{
+  /**
+   * Creates a shelf, and returns the new Shelf. (shelves.create)
+   *
+   * @param Google_Service_LibraryExample_Shelf $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_LibraryExample_Shelf
+   */
+  public function create(Google_Service_LibraryExample_Shelf $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('create', array($params), "Google_Service_LibraryExample_Shelf");
+  }
+  /**
+   * Deletes a shelf. Returns NOT_FOUND if the shelf does not exist.
+   * (shelves.delete)
+   *
+   * @param string $name The name of the shelf to delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_LibraryExample_LibraryExampleEmpty
+   */
+  public function delete($name, $optParams = array())
+  {
+    $params = array('name' => $name);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_LibraryExample_LibraryExampleEmpty");
+  }
+  /**
+   * Gets a shelf. Returns NOT_FOUND if the shelf does not exist. (shelves.get)
+   *
+   * @param string $name The name of the shelf to retrieve.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_LibraryExample_Shelf
+   */
+  public function get($name, $optParams = array())
+  {
+    $params = array('name' => $name);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_LibraryExample_Shelf");
+  }
+  /**
+   * Lists shelves. The order is unspecified but deterministic. Newly created
+   * shelves will not necessarily be added to the end of this list.
+   * (shelves.listShelves)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param int pageSize Requested page size. Server may return fewer shelves
+   * than requested. If unspecified, server will pick an appropriate default.
+   * @opt_param string pageToken A token identifying a page of results the server
+   * should return. Typically, this is the value of [ListShelvesResponse.next_page
+   * _token][google.example.library.v1.ListShelvesResponse.next_page_token]
+   * returned from the previous call to `ListShelves` method.
+   * @return Google_Service_LibraryExample_ListShelvesResponse
+   */
+  public function listShelves($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_LibraryExample_ListShelvesResponse");
+  }
+  /**
+   * Merges two shelves by adding all books from the shelf named
+   * `other_shelf_name` to shelf `name`, and deletes `other_shelf_name`. Returns
+   * the updated shelf. The book ids of the moved books may not be the same as the
+   * original books.
+   *
+   * Returns NOT_FOUND if either shelf does not exist. This call is a no-op if the
+   * specified shelves are the same. (shelves.merge)
+   *
+   * @param string $name The name of the shelf we're adding books to.
+   * @param Google_Service_LibraryExample_MergeShelvesRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_LibraryExample_Shelf
+   */
+  public function merge($name, Google_Service_LibraryExample_MergeShelvesRequest $postBody, $optParams = array())
+  {
+    $params = array('name' => $name, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('merge', array($params), "Google_Service_LibraryExample_Shelf");
+  }
+}
+=== end: ./LibraryExample/Resource/Shelves.php
+=== begin: ./LibraryExample/ShelfEnum.php
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+class Google_Service_LibraryExample_ShelfEnum extends Google_Model
+{
+  protected $enumType = 'Google_Service_LibraryExample_Enum';
+  protected $enumDataType = '';
+
+  public function setEnum(Google_Service_LibraryExample_Enum $enum)
+  {
+    $this->enum = $enum;
+  }
+  public function getEnum()
+  {
+    return $this->enum;
+  }
+}
+=== end: ./LibraryExample/ShelfEnum.php
+=== begin: ./LibraryExample/Shelf.php
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+class Google_Service_LibraryExample_Shelf extends Google_Model
+{
+  protected $enumType = 'Google_Service_LibraryExample_ShelfEnum';
+  protected $enumDataType = '';
+  public $internalTheme;
+  public $name;
+  public $restrictedTheme;
+  public $theme;
+
+  public function setEnum(Google_Service_LibraryExample_ShelfEnum $enum)
+  {
+    $this->enum = $enum;
+  }
+  public function getEnum()
+  {
+    return $this->enum;
+  }
+  public function setInternalTheme($internalTheme)
+  {
+    $this->internalTheme = $internalTheme;
+  }
+  public function getInternalTheme()
+  {
+    return $this->internalTheme;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setRestrictedTheme($restrictedTheme)
+  {
+    $this->restrictedTheme = $restrictedTheme;
+  }
+  public function getRestrictedTheme()
+  {
+    return $this->restrictedTheme;
+  }
+  public function setTheme($theme)
+  {
+    $this->theme = $theme;
+  }
+  public function getTheme()
+  {
+    return $this->theme;
+  }
+}
+=== end: ./LibraryExample/Shelf.php
