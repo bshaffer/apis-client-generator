@@ -42,6 +42,7 @@ from googleapis.codegen.schema import Schema
 
 class PHPGenerator(api_library_generator.ApiLibraryGenerator):
   """The PHP code generator."""
+
   def __init__(self, discovery, options=None):
     """Create a new PHPGenerator.
 
@@ -134,7 +135,7 @@ class PHPGenerator(api_library_generator.ApiLibraryGenerator):
 
     self._SetTypeHint(prop)
 
-  def _GenerateLibrarySource(self, api, source_package_writer):
+  def _GenerateLibrarySource(self, the_api, source_package_writer):
     """Default operations to generate the package.
 
     Do all the default operations for generating a package.
@@ -144,13 +145,13 @@ class PHPGenerator(api_library_generator.ApiLibraryGenerator):
     4. (Side effect) Closes the source_package_writer.
 
     Args:
-      api: (Api) The Api instance we are writing a libary for.
+      the_api: (Api) The Api instance we are writing a libary for.
       source_package_writer: (LibraryPackage) source output package.
     """
     list_replacements = {
-        '___models_': ['model', api.ModelClasses()],
-        '___resources_': ['resource', api.ResourceClasses()],
-        '___topLevelModels_': ['model', api.TopLevelModelClasses()],
+        '___models_': ['model', the_api.ModelClasses()],
+        '___resources_': ['resource', the_api.ResourceClasses()],
+        '___topLevelModels_': ['model', the_api.TopLevelModelClasses()],
         }
     self.WalkTemplateTree('templates', self._path_replacements,
                           list_replacements,
@@ -279,18 +280,9 @@ class PHPApi(api.Api):
 
   def __init__(self, discovery_doc, language=None):
       super(PHPApi, self).__init__(discovery_doc, language)
-      # Standardizes version namespaces
-      #  - prefix numeric versions with "v"
-      #  - add ".0" to all single-digit versions
-      #  - replace dots and dashes with underscore
-      version = self.values['version']
-      if len(version.replace('v', '')) == 1:
-        version = version + '.0'
-      if version[0].isdigit():
-        version = 'v'+version
-      version = version.replace('.', '_').replace('-', '_')
-      self.values['versionName'] = version
-      self.SetTemplateValue('versionName', version)
+      # add copyright header for version 1.2.0
+      if '--language_variant=1.2.0' in sys.argv:
+        self.SetTemplateValue('copyright', 'Copyright 2016 Google Inc.\n')
 
   # pylint: disable=unused-argument
   # The parameter element_type is deliberately unused since PHP doesn't
@@ -321,10 +313,11 @@ class PHPApi(api.Api):
 
   def ResourceClasses(self, resources=None):
     """Return all the resource classes."""
-    if resources == None:
-      resources = self.values['resources'];
+    if resources is None:
+      resources = self.values['resources']
 
-    all_resources = sorted(resources, key=lambda resource: resource.values['className'])
+    all_resources = sorted(resources,
+                    key=lambda resource: resource.values['className'])
 
     for resource in resources:
       all_resources.extend(self.ResourceClasses(resource.values['resources']))
