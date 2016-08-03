@@ -6,6 +6,7 @@
   "requires": [
     {
       "name": "Google API PHP Client",
+      "environments": ["*"],
       "downloadLink": "https://github.com/google/google-api-php-client/releases",
       "version": "${baseClientLibrary}"
     }
