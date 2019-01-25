@@ -80,7 +80,7 @@ class PHPGenerator(api_library_generator.ApiLibraryGenerator):
                                r.values['className'])
       namespaced = '_'.join((resource.GetTemplateValue('phpPropName'),
                              r.values['wireName']))
-      r.SetTemplateValue('phpPropName', namespaced)
+      r.SetTemplateValue('phpPropName', namespaced.replace('-', '_'))
       self.AnnotateResource(the_api, r)
 
   def AnnotateMethod(self, unused_api, method, resource=None):
