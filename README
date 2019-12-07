@@ -62,8 +62,10 @@ To run the library generator, use the "generate_library" script.  This is
 normally what you'd want to do.  E.g.:
 
   generate_library \
-    --input=src/googleapis/codegen/testdata/moderator.v1.json \
-    --language=java \
+    --language=php \
+    --api_name compute \
+    --api_version v1 \
+    --language_variant default \
     --output_dir=/tmp/generated
 
 To expand arbitrary templates, the "expand_templates" script is also available:

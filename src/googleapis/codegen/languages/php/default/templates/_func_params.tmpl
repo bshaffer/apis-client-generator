@@ -4,7 +4,7 @@
   {% endfor %}
   {% if method.requestType %}
     {% parameter %}
-      {{ api.ownerName }}_Service_{{ api.className }}_{{ method.requestType.className }} $postBody
+      Model\{{ method.requestType.className }} $postBody
     {% end_parameter %}
   {% endif %}
   {% parameter %}$optParams = array(){% end_parameter %}
