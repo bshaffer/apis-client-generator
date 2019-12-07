@@ -1,11 +1,12 @@
 <?php
 {% language php %}{% copyright_block %}
 
-namespace {{ api.ownerName }}\Service;
+namespace {{ api.ownerName }}\ApiClient\{{ api.className }};
 
-use Google\Client;
-use Google\Service;{% if api.methods %}
-use Google\Resource;{% endif %}
+use Google_Client;{% if api.methods %}
+use Google\ApiClient\Resource as BaseMethodResource;{% endif %}
+use Google\ApiClient\Service;
+use Google\ApiClient\{{ api.className }}\Resource;
 
 /**
  * Service definition for {{ api.className }} ({{ api.version }}).
@@ -57,7 +58,7 @@ $this->serviceName = {% literal api.name %};
 {% indent %}
 {% indent %}
 {% if api.methods %}
-$this->base_methods = new Resource(
+$this->base_methods = new BaseMethodResource(
     $this,
     $this->serviceName,
     '{{ resource.codeName }}',

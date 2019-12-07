@@ -1,6 +1,6 @@
 {% filter noblanklines %}
 {% if resource.json %}
-    $this->{{ resource.phpPropName }} = new {{ api.className }}\{{ resource.className }}(
+    $this->{{ resource.phpPropName }} = new {{ api.className }}\Resource\{{ resource.className }}(
         $this,
         $this->serviceName,
         '{{ resource.codeName }}',

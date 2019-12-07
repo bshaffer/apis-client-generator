@@ -1,15 +1,16 @@
 <?php
 {% language php %}{% copyright_block %}
 
-namespace {{ api.ownerName }}\Service\{{ api.className }};
+namespace {{ api.ownerName }}\ApiClient\{{ api.className }}\Resource;
 
-use Google\Resource;
+use Google\ApiClient\Resource;
+use Google\ApiClient\{{ api.className }}\Model;
 
 /**
  * The "{{ resource.wireName }}" collection of methods.
  * Typical usage is:
  *  <code>
- *   ${{ api.name }}Service = new {{ api.ownerName }}\Service\{{ api.className }}(...);
+ *   ${{ api.name }}Service = new {{ api.ownerName }}\ApiClient\{{ api.className }}(...);
  *   ${{ resource.codeName }} = ${{ api.name }}Service->{{ resource.codeName }};
  *  </code>
  */
