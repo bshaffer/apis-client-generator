@@ -1,0 +1,20 @@
+<?php
+{% language php %}{% copyright_block %}
+
+namespace {{ api.ownerName }}\Service\{{ api.className }};
+
+use Google\Resource;
+
+/**
+ * The "{{ resource.wireName }}" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   ${{ api.name }}Service = new {{ api.ownerName }}\Service\{{ api.className }}(...);
+ *   ${{ resource.codeName }} = ${{ api.name }}Service->{{ resource.codeName }};
+ *  </code>
+ */
+class {{ resource.className }} extends Resource
+{{% indent %}{% for method in resource.methods %}{% if not forloop.first %}
+{% endif %}
+{% call_template _method method=method %}{% endfor %}
+{% endindent %}}

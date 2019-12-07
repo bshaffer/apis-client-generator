@@ -67,7 +67,7 @@ flags.DEFINE_string(
     'A discovery document captured from a discovery service.')
 flags.DEFINE_enum(
     'language',
-    'java',
+    'php',
     generator_lookup.SupportedLanguages(),
     'Target language for the generated library')
 flags.DEFINE_string(

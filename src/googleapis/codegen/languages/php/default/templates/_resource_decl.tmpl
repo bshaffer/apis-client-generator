@@ -1,6 +1,6 @@
 {% filter noblanklines %}
 {% if resource.json %}
-    $this->{{ resource.phpPropName }} = new {{ api.ownerName }}_Service_{{ api.className }}_{{ resource.className }}_Resource(
+    $this->{{ resource.phpPropName }} = new {{ api.className }}\{{ resource.className }}(
         $this,
         $this->serviceName,
         '{{ resource.codeName }}',
@@ -8,7 +8,8 @@
     );
 {% endif %}
 
-{% for r in resource.resources %}
+{% endfilter %}{% for r in resource.resources %}{% if not forloop.first %}
+
+{% endif %}{% filter noblanklines %}
 {% call_template _resource_decl resource=r %}
-{% endfor %}
-{% endfilter %}
+{% endfilter %}{% endfor %}

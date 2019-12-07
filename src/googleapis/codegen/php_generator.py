@@ -31,6 +31,8 @@ __author__ = 'chirags@google.com (Chirag Shah)'
 import collections
 import json
 import operator
+import re
+import os
 
 from googleapis.codegen import api
 from googleapis.codegen import api_library_generator
@@ -177,14 +179,61 @@ class PHPGenerator(api_library_generator.ApiLibraryGenerator):
     code_type = prop.code_type
     if code_type and code_type.lower() in PhpLanguageModel.PHP_TYPES:
       prop.values['typeHint'] = ''
-      prop.values['typeHintOld'] = ''
     else:
-      prop.values['typeHintOld'] = ('%s_%s' %
-                                    (self._api.values['owner'].title(),
-                                     code_type))
-      prop.values['typeHint'] = ('%s_Service_%s_%s' %
-                                 (self._api.values['owner'].title(),
-                                  self._api.values['className'], code_type))
+      prop.values['typeHint'] = code_type
+
+  def GenerateListOfFiles(self, path_prefix, call_info, template_path,
+                          relative_path, template_file_name, variables,
+                          package, file_filter=None):
+    """Generate many output files from a template.
+
+    This method blends together a list of CodeObjects (from call_info) with
+    the template_file_name to produce an output file for each of the elements
+    in the list. The names for each file are derived from a template variable
+    of each element.
+
+    Args:
+      path_prefix: (str) The piece of path which triggers the replacement.
+      call_info: (list) ['name to bind', [list of CodeObjects]]
+      template_path: (str) The path of the template file.
+      relative_path: (str) The relative path of the output file in the package.
+      template_file_name: (str) the file name of the template for this list.
+        The file name must contain the form '{path_prefix}{variable_name}___'
+        (without the braces). The pair is replaced by the value of variable_name
+        from each successive element of the call list.
+      variables: (dict) The dictionary of variable replacements to pass to the
+         templates.
+      package: (LibraryWriter) The output package stream to write to.
+      file_filter: (func) See WalkTemplateTree for a description.
+
+    Raises:
+      ValueError: If the template_file_name does not match the call_info data.
+    """
+    path_and_var_regex = r'%s([a-z][A-Za-z]*)___' % path_prefix
+    match_obj = re.compile(path_and_var_regex).match(template_file_name)
+    if not match_obj:
+      raise ValueError(
+          'file names which match path item for GenerateListOfFiles must'
+          ' contain a variable for substitution. E.g. "___models_codeName___"')
+    variable_name = match_obj.group(1)
+    file_name_piece_to_replace = path_prefix + variable_name + '___'
+    for element in call_info[1]:
+      file_path = relative_path
+      file_name = template_file_name.replace(
+          file_name_piece_to_replace, element.values[variable_name])
+      name_in_zip = file_name[:-5]  # strip '.tmpl'
+      if file_filter and not file_filter(None, name_in_zip):
+        continue
+      d = dict(variables)
+      d[call_info[0]] = element
+      # print 'RenderTemplate from File %s to %s' % (template_path[-40:], os.path.join(relative_path, name_in_zip))
+      parent = element.parent
+      while parent != None and isinstance(parent, Schema):
+        file_path += '/' + parent.GetTemplateValue('className')
+        parent = parent.parent
+      print 'File path: %s' % file_path
+      self.RenderTemplateToFile(
+          template_path, d, package, os.path.join(file_path, name_in_zip))
 
 
 class PhpLanguageModel(language_model.LanguageModel):

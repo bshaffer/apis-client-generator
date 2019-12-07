@@ -1,7 +1,7 @@
 {
   "language": "php",
   "description": "PHP libraries for Google APIs.",
-  "releaseVersion": "1.1.1",
+  "releaseVersion": "1.3.0",
   "baseClientLibrary": "1.1.1",
   "requires": [
     {

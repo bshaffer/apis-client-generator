@@ -1,14 +1,13 @@
-
 /**{% filter block_comment %}
  * {{ method.description }} ({% if resource %}{{ resource.wireName }}.{% endif %}{{ method.name }})
  * {% endfilter %}
  *
 {% filter noblanklines %}
 {% for param in method.required_parameters %}{% filter block_comment %}
- * @param {{ param.codeType }} ${{ param.memberName }}
+ * @param {{ param.codeType }}{% if param.repeated %}|array{% endif %} ${{ param.memberName }}
  * {{ param.description }}{% endfilter %}{% endfor %}
 {% if method.requestType %}
- * @param {{ api.ownerName }}_{{ method.requestType.className }} $postBody
+ * @param Model\{{ method.requestType.className }} $postBody
 {% endif %}
  * @param array $optParams Optional parameters.
 {% if method.optional_parameters %}
@@ -17,26 +16,26 @@
  * {{ param.description }}{% endfilter %}{% endfor %}
 {% endif %}
 {% if method.response %}
- * @return {{ api.ownerName }}_Service_{{ api.className }}_{{ method.responseType.className }}
+ * @return Model\{{ method.responseType.className }}
 {% endif %}
  */
 {% endfilter %}
 public function {{ method.name }}({% call_template _func_params method=method %})
 {
 {% filter noblanklines %}
-  $params = array({% parameter_list %}
+  $params = [{% parameter_list %}
     {% for p in method.requiredParameters %}
       {% parameter %}'{{ p.wireName }}' => ${{ p.memberName }}{% end_parameter %}
     {% endfor %}
     {% if method.requestType %}
       {% parameter %}'postBody' => $postBody{% end_parameter %}
     {% endif %}
-  {% end_parameter_list %});
+  {% end_parameter_list %}];
   $params = array_merge($params, $optParams);
 {% if method.response %}
-  return $this->{% if baseMethod == 1 %}base_methods->{% endif %}call('{{ method.wireName }}', array($params), "{{ api.ownerName }}_Service_{{ api.className }}_{{ method.responseType.className }}");
+  return $this->{% if baseMethod == 1 %}base_methods->{% endif %}call('{{ method.wireName }}', [$params], Model\{{ method.responseType.className }}::class);
 {% else %}
-  return $this->{% if baseMethod == 1 %}base_methods->{% endif %}call('{{ method.wireName }}', array($params));
+  return $this->{% if baseMethod == 1 %}base_methods->{% endif %}call('{{ method.wireName }}', [$params]);
 {% endif %}
 {% endfilter %}
 }

@@ -7,15 +7,7 @@
 __author__ = 'akesling@google.com (Alex Kesling)'
 
 
-from googleapis.codegen import cpp_generator
-from googleapis.codegen import csharp_generator
-from googleapis.codegen import dart_generator
-from googleapis.codegen import gwt_generator
-from googleapis.codegen import java_generator
-from googleapis.codegen import objc_generator
 from googleapis.codegen import php_generator
-from googleapis.codegen import python_generator
-from googleapis.codegen import sample_generator
 
 
 # Multiple generators per language are possible, as is the case with
@@ -24,20 +16,7 @@ from googleapis.codegen import sample_generator
 # to a key in these dictionaries.  If a template tree does not
 # include this specification, the language name is used as a key.
 _GENERATORS_BY_LANGUAGE = {
-    'cpp': cpp_generator.CppGenerator,
-    'csharp': csharp_generator.CSharpGenerator,
-    'dart': dart_generator.DartGenerator,
-    'gwt': gwt_generator.GwtGenerator,
-    'java': java_generator.Java14Generator,
-    # TODO(user): Consider cleaning up all the old java/*/features.json files
-    # to use 'java' as the generator. It seems right to keep the ability to
-    # have different version stamp styles so we can support old code
-    # generators, but this feature is of dubious value.
-    'java1_15': java_generator.Java14Generator,
-    'objc': objc_generator.ObjCGenerator,
     'php': php_generator.PHPGenerator,
-    'python': python_generator.PythonGenerator,
-    'sample': sample_generator.SampleGenerator,
     }
 
 
