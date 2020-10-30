@@ -1,7 +1,7 @@
 <?php
 {% language php %}{% copyright_block %}
 
-namespace {{ api.ownerName }}\Services\{{ api.className }};
+namespace {{ api.ownerName }}\Service\{{ api.className }};
 
 use Google\Client;{% if api.methods %}
 use Google\Service\Resource as BaseMethodResource;{% endif %}
