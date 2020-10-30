@@ -36,14 +36,14 @@ class Google_Service_EccoDomaniIeri extends Google_Service
       "https://www.googleapis.com/auth/userinfo.email";
 
   public $greetings;
-  
+
 
   /**
    * Constructs the internal representation of the EccoDomaniIeri service.
    *
-   * @param Google_Client $client
+   * @param Client $client
    */
-  public function __construct(Google_Client $client)
+  public function __construct(Client $client)
   {
     parent::__construct($client);
     $this->rootUrl = 'https://peer-pontus.appspot.com/_ah/api/';

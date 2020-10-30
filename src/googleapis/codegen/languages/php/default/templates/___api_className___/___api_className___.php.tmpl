@@ -3,10 +3,10 @@
 
 namespace {{ api.ownerName }}\ApiClient\{{ api.className }};
 
-use Google_Client;{% if api.methods %}
-use Google\ApiClient\Resource as BaseMethodResource;{% endif %}
-use Google\ApiClient\Service;
-use Google\ApiClient\{{ api.className }}\Resource;
+use Google\Client;{% if api.methods %}
+use Google\Service\Resource as BaseMethodResource;{% endif %}
+use Google\Service\Service;
+use Google\Service\{{ api.className }}\Resource;
 
 /**
  * Service definition for {{ api.className }} ({{ api.version }}).
@@ -37,14 +37,14 @@ const {{ authscope.name }} =
    * Constructs the internal representation of the {{ api.className }} service.
    * {% endfilter %}
    *
-   * @param Google_Client $client The client used to deliver requests.
+   * @param Client|array $clientOrConfig The client or config for delivering requests
    * @param string $rootUrl The root URL used for requests to the service.
    */
-  public function __construct(Client $client, $rootUrl = null)
+  public function __construct($clientOrConfig = [], $rootUrl = null)
   {
 {% filter noblanklines %}
 {% indent 2 %}
-parent::__construct($client);
+parent::__construct($clientOrConfig);
 $this->rootUrl = $rootUrl ?: {% literal api.rootUrl %};
 $this->servicePath = {% literal api.servicePath %};
 {% if api.batchPath %}$this->batchPath = {% literal api.batchPath %};{% endif %}
