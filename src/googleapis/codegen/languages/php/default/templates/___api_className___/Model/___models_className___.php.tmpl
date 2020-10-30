@@ -1,9 +1,9 @@
 <?php
 {% language php %}{% copyright_block %}
 
-namespace {{ api.ownerName }}\ApiClient\{{ api.className }}\Model;
+namespace {{ api.ownerName }}\Services\{{ api.className }}\Model;
 
-{% if not model.superClass %}{% if model.dataType == "array" %}use Google\ApiClient\Collection;{% else %}use Google\ApiClient\Model;{% endif %}{% endif %}
+{% if not model.superClass %}{% if model.dataType == "array" %}use Google\Services\Collection;{% else %}use Google\Services\Model;{% endif %}{% endif %}
 
 class {{ model.className }} {% if model.superClass %}extends {{ model.superClass }}{% else %}{% if model.dataType == "array" %}extends Collection{% else %}extends Model{% endif %}{% endif %}
 {{% if model.properties %}
